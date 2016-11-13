@@ -1,36 +1,58 @@
 import spotipy
 class Song:
 
-    def __int__(self,uri,artist,name,genre,score,added,length):
+    def __int__(self,uri,artist,name,score,added,length,expli):
         self.uri = uri
         self.artist = artist
         self.name = name
-        self.genre = genre
         self.score = score
         self.added = added
         self.length = length
+        self.explicit = expli
     def __init__(self,uri):
         self.uri = uri
+        spotify = spotipy.Spotify()
+        songInfo = spotify.track(self.uri)
+        self.artist = []
+        for x in songInfo['artists']:
+            self.artist.append(x['name'])
+        self.name = songInfo['name']
+        self.score = 0
+        self.length = songInfo['duration_ms'] / 1000
+        self.explicit = songInfo['explicit']
+        self.album = songInfo['album']['name']
+        self.added=False
 
-
-    def __str__(self):
-        return 'Name:'+self.name+'\tArtist:'+self.artist+'\tGenre:'+self.genre+'\tScore:'+self.score
+    def toString(self):
+        woo = 'Name: '+self.name+' Artist: '+self.artistsToString()+' Album: '+self.album
+        return woo
 
     def getAdded (self):
         return self.added
     def getURI(self):
         return self.uri
     def getArtist(self):
-        return self.artist
+        return self.artistsToString()
     def getName(self):
         return self.name
-    def getGenre(self):
-        return self.genre
+    def getExplicit(self):
+        return self.explicit
     def getScore(self):
         return self.score
     def getLength(self):
         return self.length
-    def increaseScore(self):
+    def upVote(self):
         self.score = self.score+1
-    def setAdded(self,bool):
-        self.addded=bool
+    def downVote(self):
+        self.score = self.score-1
+    def makeAdded(self):
+        self.added=True
+        self.score=1
+    def artistsToString(self):
+        str = ""
+        if len(self.artist) != 1:
+            for i in self.artist:
+             str= str+ i +','
+        else:
+            str = self.artist[0]
+        return str
