@@ -139,7 +139,7 @@
 <form action = '/search_results' method="POST">
     <input placeholder="Artist:" type = 'text' name='artist'> </input>
     <input placeholder="Album:" type = 'text' name='album'> </input>
-    <input placeholder="Track" type = 'text' name='track'> </input>
+    <input placeholder="Track:" type = 'text' name='track'> </input>
     <input type="submit" value="Submit!" id="search"/>
 </form>
 
@@ -156,7 +156,7 @@
        <td><h3>{{name}}</h3>
            <h3>{{artist}}:{{album}}</h3></td>
        <td><h3>{{ score }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote" value="Up" id="up">
                  <input type="button" name= "vote" value="Down" id="down">
@@ -180,7 +180,7 @@
        <td><h3>{{name2}}</h3>
            <h3>{{artist2}}:{{album2}}</h3></td>
        <td><h3>{{ score2 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote2" value="Up" id="up">
                  <input type="button" name= "vote2" value="Down" id="down">
@@ -192,7 +192,7 @@
        <td><h3>{{name3}}</h3>
            <h3>{{artist3}}:{{album3}}</h3></td>
        <td><h3>{{ score3 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote3" value="Up" id="up">
                  <input type="button" name= "vote3" value="Down" id="down">
@@ -204,7 +204,7 @@
        <td><h3>{{name4}}</h3>
            <h3>{{artist4}}:{{album4}}</h3></td>
        <td><h3>{{ score4 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote4" value="Up" id="up">
                  <input type="button" name= "vote4" value="Down" id="down">
@@ -216,7 +216,7 @@
        <td><h3>{{name5}}</h3>
            <h3>{{artist5}}:{{album5}}</h3></td>
        <td><h3>{{ score5 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote5" value="Up" id="up">
                  <input type="button" name= "vote5" value="Down" id="down">
@@ -228,7 +228,7 @@
        <td><h3>{{name6}}</h3>
            <h3>{{artist6}}:{{album6}}</h3></td>
        <td><h3>{{ score6 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote6" value="Up" id="up">
                  <input type="button" name= "vote6" value="Down" id="down">
@@ -240,7 +240,7 @@
        <td><h3>{{name7}}</h3>
            <h3>{{artist7}}:{{album7}}</h3></td>
        <td><h3>{{ score7 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote7" value="Up" id="up">
                  <input type="button" name= "vote7" value="Down" id="down">
@@ -252,7 +252,7 @@
        <td><h3>{{name8}}</h3>
            <h3>{{artist8}}:{{album8}}</h3></td>
        <td><h3>{{ score8 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote8" value="Up" id="up">
                  <input type="button" name= "vote8" value="Down" id="down">
@@ -264,7 +264,7 @@
        <td><h3>{{name9}}</h3>
            <h3>{{artist9}}:{{album9}}</h3></td>
        <td><h3>{{ score9 }}</h3></td>
-        <form action="/" method="POST">
+        <form action="/vote" method="POST">
              <td>
                  <input type="button" name="vote9" value="Up" id="up">
                  <input type="button" name= "vote9" value="Down" id="down">

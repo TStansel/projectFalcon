@@ -178,6 +178,54 @@ def searchResults():
         return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
                                score0=songResults[0].getScore())
 
+@app.route('/add', methods=['GET'])
+def addingSongs():
+        if request.method == 'GET':
+            btnID = request.form['btn']
+        if btnID == '0':
+            songResults[0].upVote()
+            addedSongs.append(songResults[0])
+            songResults.remove(0)
+        if btnID == '1':
+            songResults[1].upVote()
+            addedSongs.append(songResults[1])
+            songResults.remove(1)
+        if btnID == '2':
+            songResults[2].upVote()
+            addedSongs.append(songResults[2])
+            songResults.remove(2)
+        if btnID == '3':
+            songResults[3].upVote()
+            addedSongs.append(songResults[3])
+            songResults.remove(3)
+        if btnID == '4':
+            songResults[4].upVote()
+            addedSongs.append(songResults[4])
+            songResults.remove(4)
+        if btnID == '5':
+            songResults[5].upVote()
+            addedSongs.append(songResults[5])
+            songResults.remove(5)
+        if btnID == '6':
+            songResults[6].upVote()
+            addedSongs.append(songResults[6])
+            songResults.remove(6)
+        if btnID == '7':
+            songResults[7].upVote()
+            addedSongs.append(songResults[7])
+            songResults.remove(7)
+        if btnID == '8':
+            songResults[8].upVote()
+            addedSongs.append(songResults[8])
+            songResults.remove(8)
+        if btnID == '9':
+            songResults[9].upVote()
+            addedSongs.append(songResults[9])
+            songResults.remove(9)
+        return render_template('base.html')
+@app.route('/vote',methods=['POST'])
+def trackVoting():
+    return 'vote test'
 def playlistAdd(songResults):
     for i in songResults:
         if i.getAdded():
@@ -225,7 +273,7 @@ def searchCriteria(artistName,trackName,albumName):
 
     # no artist
     elif artistName == "":
-        results = spotify.search(q="ytrack:" + trackName + " album:" + albumName, limit=10, type="track")
+        results = spotify.search(q="track:" + trackName + " album:" + albumName, limit=10, type="track")
 
     # no track
     elif trackName == "":

@@ -1,0 +1,39 @@
+body {
+    font-family: sans-serif;
+    background: violet;
+    background-image: url(/Flat-Color-Gradient-Triangles.png)}
+h1 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 45px;
+    font-color: #333333;
+	font-weight: bold;
+	line-height: 28px;
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 37.5px;
+    margin: 0;
+    padding: 3px;
+    border: 1.5px
+}
+
+h3 {
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 28px;
+    margin: 0;
+    border-top: 1px;
+    border-bottom: 1px;
+    padding: 3px;
+}
+
+.explicit{
+    color: rgb(200, 0, 0);
+}
