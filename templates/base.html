@@ -3,11 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <style>
+    body {
+        font-family: sans-serif;
+        background-image: url('/Flat-Color-Gradient-Triangles.png');
+        width: 640px;
+        height: 1136px;
+    }
+
+    h1 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    	font-size: 45px;
+        font-color: #333333;
+    	font-weight: bold;
+        margin: 0;
+        padding: 3px;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    	font-size: 15px;
+    	font-weight: bold;
+        margin: 0;
+        padding: 3px;
+        border: 1.5px
+    }
+
+    h3 {
+    	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    	font-size: 14px;
+    	font-weight: 100;
+        margin: 0;
+        border-top: 1px;
+        border-bottom: 1px;
+        padding: 3px;
+    }
+
+    .explicit{
+        color: rgb(200, 0, 0);
+    }
+
+    .rank{
+        font-weight: bold;
+    }
+
+    table {
+        border-collapse: collapse;
+        padding: 4px;
+    }
+
+    table, th, td {
+        padding: 5px;
+        border-bottom: 1px solid black;
+        color: white;
+        text-align: center;
+    }
+
+    th {
+        background-color: #121f1f;
+        border-left: #121f1f;
+        border-right:#121f1f;
+    }
+
+    td {
+        background-color: #253f3f;
+        border-left: #253f3f;
+        border-right: #253f3f;
+
+    }
+
+    input[type='text'] {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 6px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    input[type='text']:focus {
+        border: 3px solid red;
+    }
+
+    input[type = 'submit'] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        width: 100%;
+    }
+
+    input[value="Up"] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+    }
+
+    input[value="Down"] {
+        background-color: rgb(200,0,0);
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+    }
+
+    input[value="Add"] {
+        border: 3px solid #4CAF50;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+    }
+
+</style>
 </head>
 <body>
 
 <h1>Title</h1>
+
+
 <form action = '/search_results' method="POST">
     <h3> Artist: </h3>
     <input type = 'text' name='artist'> </input>
@@ -15,7 +137,138 @@
     <input type = 'text' name='album'> </input>
     <h3> Track: </h3>
     <input type = 'text' name='track'> </input>
-    <input type="submit" value="Submit!" />
+    <input type="submit" value="Submit!" id="search"/>
 </form>
+
+<table >
+    <tr>
+       <th><h2>Rank</h2></th>
+       <th><h2>Title</h2>
+           <h2>Author|Album</h2></th>
+       <th><h2>Score</h2></th>
+       <th><h2>Vote</h2></th>
+    </tr>
+    <tr>
+       <td><h3 type="bold">1</h3></td>
+       <td><h3>{{name}}</h3>
+           <h3>{{artist}}{{album}}</h3></td>
+       <td><h3>{{ score }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote" value="Up" id="up">
+                 <input type="button" name= "vote" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">2</h3></td>
+       <td><h3>{{name1}}</h3>
+           <h3>{{artist1}}{{album1}}</h3></td>
+       <td><h3>{{ score1 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote1" value="Up" id="up">
+                 <input type="button" name= "vote1" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">3</h3></td>
+       <td><h3>{{name2}}</h3>
+           <h3>{{artist2}}{{album2}}</h3></td>
+       <td><h3>{{ score2 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote2" value="Up" id="up">
+                 <input type="button" name= "vote2" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">4</h3></td>
+       <td><h3>{{name3}}</h3>
+           <h3>{{artist3}}{{album3}}</h3></td>
+       <td><h3>{{ score3 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote3" value="Up" id="up">
+                 <input type="button" name= "vote3" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">5</h3></td>
+       <td><h3>{{name4}}</h3>
+           <h3>{{artist4}}{{album4}}</h3></td>
+       <td><h3>{{ score4 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote4" value="Up" id="up">
+                 <input type="button" name= "vote4" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">6</h3></td>
+       <td><h3>{{name5}}</h3>
+           <h3>{{artist5}}{{album5}}</h3></td>
+       <td><h3>{{ score5 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote5" value="Up" id="up">
+                 <input type="button" name= "vote5" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">7</h3></td>
+       <td><h3>{{name6}}</h3>
+           <h3>{{artist6}}{{album6}}</h3></td>
+       <td><h3>{{ score6 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote6" value="Up" id="up">
+                 <input type="button" name= "vote6" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">8</h3></td>
+       <td><h3>{{name7}}</h3>
+           <h3>{{artist7}}{{album7}}</h3></td>
+       <td><h3>{{ score7 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote7" value="Up" id="up">
+                 <input type="button" name= "vote7" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">9</h3></td>
+       <td><h3>{{name8}}</h3>
+           <h3>{{artist8}}{{album8}}</h3></td>
+       <td><h3>{{ score8 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote8" value="Up" id="up">
+                 <input type="button" name= "vote8" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+    <tr>
+       <td><h3 type="bold">10</h3></td>
+       <td><h3>{{name9}}</h3>
+           <h3>{{artist9}}{{album9}}</h3></td>
+       <td><h3>{{ score9 }}</h3></td>
+        <form action="/" method="POST">
+             <td>
+                 <input type="button" name="vote9" value="Up" id="up">
+                 <input type="button" name= "vote9" value="Down" id="down">
+             </td>
+        </form>
+    </tr>
+</table>
+
 </body>
 </html>
