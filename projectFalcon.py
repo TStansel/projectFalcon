@@ -3,6 +3,7 @@ import spotipy
 from Song import Song
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 
 @app.route('/')
 def hello_world():
@@ -14,70 +15,80 @@ def hello_world():
     if len(addedSongs) == 0:
         return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
     if len(addedSongs) >=10:
-            return render_template('base.html',name0= addedSongs[0],artist0= addedSongs[0],album0= addedSongs[0],score0=addedSongs[0],name1 = addedSongs[1],artist1 = addedSongs[1],album1 = addedSongs[1],score1 = addedSongs[1],name2 = addedSongs[2],artist2 = addedSongs[2],album2 = addedSongs[2],score2 = addedSongs[2],name3 = addedSongs[3],artist3 = addedSongs[3],album3 = addedSongs[3],score3 = addedSongs[3],name4 = addedSongs[4],artist4 = addedSongs[4],album4 = addedSongs[4],score4 = addedSongs[4],name5 = addedSongs[5],artist5 = addedSongs[5],album5 = addedSongs[5],score5 = addedSongs[5],name6 = addedSongs[6],artist6 = addedSongs[6],album6 = addedSongs[6],score6 = addedSongs[6], name7 = addedSongs[7],artist7 = addedSongs[7],album7 = addedSongs[7],score7 = addedSongs[7], name8 = addedSongs[8],artist8 = addedSongs[8], album8 = addedSongs[8],score8 = addedSongs[8], name9 = addedSongs[9],artist9 = addedSongs[9],album9 = addedSongs[9],score9 = addedSongs[9])
+            return render_template('base.html',name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore(), name5=addedSongs[5].getName(), artist5=addedSongs[5].getArtist(), album5=addedSongs[5].getAlbum(),
+                               score5=addedSongs[5].getScore(), name6=addedSongs[6].getName(), artist6=addedSongs[6].getArtist(), album6=addedSongs[6].getAlbum(),
+                               score6=addedSongs[6].getScore(), name7=addedSongs[7].getName(), artist7=addedSongs[7].getArtist(), album7=addedSongs[7].getAlbum(),
+                               score7=addedSongs[7].getScore(), name8=addedSongs[8].getName(), artist8=addedSongs[8].getArtist(), album8=addedSongs[8].getAlbum(),
+                               score8=addedSongs[8].getScore(), name9=addedSongs[9].getName(), artist9=addedSongs[9].getArtist(), album9=addedSongs[9].getAlbum(),
+                               score9=addedSongs[9].getScore())
     if len(addedSongs) == 9:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3], name4=addedSongs[4], artist4=addedSongs[4], album4=addedSongs[4],
-                               score4=addedSongs[4], name5=addedSongs[5], artist5=addedSongs[5], album5=addedSongs[5],
-                               score5=addedSongs[5], name6=addedSongs[6], artist6=addedSongs[6], album6=addedSongs[6],
-                               score6=addedSongs[6], name7=addedSongs[7], artist7=addedSongs[7], album7=addedSongs[7],
-                               score7=addedSongs[7], name8=addedSongs[8], artist8=addedSongs[8], album8=addedSongs[8],
-                               score8=addedSongs[8])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore(), name5=addedSongs[5].getName(), artist5=addedSongs[5].getArtist(), album5=addedSongs[5].getAlbum(),
+                               score5=addedSongs[5].getScore(), name6=addedSongs[6].getName(), artist6=addedSongs[6].getArtist(), album6=addedSongs[6].getAlbum(),
+                               score6=addedSongs[6].getScore(), name7=addedSongs[7].getName(), artist7=addedSongs[7].getArtist(), album7=addedSongs[7].getAlbum(),
+                               score7=addedSongs[7].getScore(), name8=addedSongs[8].getName(), artist8=addedSongs[8].getArtist(), album8=addedSongs[8].getAlbum(),
+                               score8=addedSongs[8].getScore())
     if len(addedSongs) == 8:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3], name4=addedSongs[4], artist4=addedSongs[4], album4=addedSongs[4],
-                               score4=addedSongs[4], name5=addedSongs[5], artist5=addedSongs[5], album5=addedSongs[5],
-                               score5=addedSongs[5], name6=addedSongs[6], artist6=addedSongs[6], album6=addedSongs[6],
-                               score6=addedSongs[6], name7=addedSongs[7], artist7=addedSongs[7], album7=addedSongs[7],
-                               score7=addedSongs[7])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore(), name5=addedSongs[5].getName(), artist5=addedSongs[5].getArtist(), album5=addedSongs[5].getAlbum(),
+                               score5=addedSongs[5].getScore(), name6=addedSongs[6].getName(), artist6=addedSongs[6].getArtist(), album6=addedSongs[6].getAlbum(),
+                               score6=addedSongs[6].getScore(), name7=addedSongs[7].getName(), artist7=addedSongs[7].getArtist(), album7=addedSongs[7].getAlbum(),
+                               score7=addedSongs[7].getScore())
     if len(addedSongs) == 7:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3], name4=addedSongs[4], artist4=addedSongs[4], album4=addedSongs[4],
-                               score4=addedSongs[4], name5=addedSongs[5], artist5=addedSongs[5], album5=addedSongs[5],
-                               score5=addedSongs[5], name6=addedSongs[6], artist6=addedSongs[6], album6=addedSongs[6],
-                               score6=addedSongs[6])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore(), name5=addedSongs[5].getName(), artist5=addedSongs[5].getArtist(), album5=addedSongs[5].getAlbum(),
+                               score5=addedSongs[5].getScore(), name6=addedSongs[6].getName(), artist6=addedSongs[6].getArtist(), album6=addedSongs[6].getAlbum(),
+                               score6=addedSongs[6].getScore())
     if len(addedSongs) == 6:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3], name4=addedSongs[4], artist4=addedSongs[4], album4=addedSongs[4],
-                               score4=addedSongs[4], name5=addedSongs[5], artist5=addedSongs[5], album5=addedSongs[5],
-                               score5=addedSongs[5])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore(), name5=addedSongs[5].getName(), artist5=addedSongs[5].getArtist(), album5=addedSongs[5].getAlbum(),
+                               score5=addedSongs[5].getScore())
     if len(addedSongs) == 5:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3], name4=addedSongs[4], artist4=addedSongs[4], album4=addedSongs[4],
-                               score4=addedSongs[4])
+        return render_template('base.html',name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore(), name4=addedSongs[4].getName(), artist4=addedSongs[4].getArtist(), album4=addedSongs[4].getAlbum(),
+                               score4=addedSongs[4].getScore())
     if len(addedSongs) == 4:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2], name3=addedSongs[3], artist3=addedSongs[3], album3=addedSongs[3],
-                               score3=addedSongs[3])
+        return render_template('base.html',name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore(), name3=addedSongs[3].getName(), artist3=addedSongs[3].getArtist(), album3=addedSongs[3].getAlbum(),
+                               score3=addedSongs[3].getScore())
     if len(addedSongs) == 3:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1], name2=addedSongs[2], artist2=addedSongs[2], album2=addedSongs[2],
-                               score2=addedSongs[2])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore(), name2=addedSongs[2].getName(), artist2=addedSongs[2].getArtist(), album2=addedSongs[2].getAlbum(),
+                               score2=addedSongs[2].getScore())
     if len(addedSongs) == 2:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0], name1=addedSongs[1], artist1=addedSongs[1], album1=addedSongs[1],
-                               score1=addedSongs[1])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore(), name1=addedSongs[1].getName(), artist1=addedSongs[1].getArtist(), album1=addedSongs[1].getAlbum(),
+                               score1=addedSongs[1].getScore())
     if len(addedSongs) == 1:
-        return render_template('base.html', name0=addedSongs[0], artist0=addedSongs[0], album0=addedSongs[0],
-                               score0=addedSongs[0])
+        return render_template('base.html', name0=addedSongs[0].getName(), artist0=addedSongs[0].getArtist(), album0=addedSongs[0].getAlbum(),
+                               score0=addedSongs[0].getScore())
 
 
 
@@ -88,7 +99,84 @@ def searchResults():
     tr = request.form['track']
     al = request.form['album']
     results = str(searchCriteria(ar,tr,al))
-    return testing(results)
+    songResults= testing(results)
+    if len(songResults) == 0:
+        return render_template('search_results.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
+    if len(songResults) >=10:
+            return render_template('search_results.html', name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore(), name5=songResults[5].getName(), artist5=songResults[5].getArtist(), album5=songResults[5].getAlbum(),
+                               score5=songResults[5].getScore(), name6=songResults[6].getName(), artist6=songResults[6].getArtist(), album6=songResults[6].getAlbum(),
+                               score6=songResults[6].getScore(), name7=songResults[7].getName(), artist7=songResults[7].getArtist(), album7=songResults[7].getAlbum(),
+                               score7=songResults[7].getScore(), name8=songResults[8].getName(), artist8=songResults[8].getArtist(), album8=songResults[8].getAlbum(),
+                               score8=songResults[8].getScore(), name9=songResults[9].getName(), artist9=songResults[9].getArtist(), album9=songResults[9].getAlbum(),
+                               score9=songResults[9].getScore())
+    if len(songResults) == 9:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore(), name5=songResults[5].getName(), artist5=songResults[5].getArtist(), album5=songResults[5].getAlbum(),
+                               score5=songResults[5].getScore(), name6=songResults[6].getName(), artist6=songResults[6].getArtist(), album6=songResults[6].getAlbum(),
+                               score6=songResults[6].getScore(), name7=songResults[7].getName(), artist7=songResults[7].getArtist(), album7=songResults[7].getAlbum(),
+                               score7=songResults[7].getScore(), name8=songResults[8].getName(), artist8=songResults[8].getArtist(), album8=songResults[8].getAlbum(),
+                               score8=songResults[8].getScore())
+    if len(songResults) == 8:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore(), name5=songResults[5].getName(), artist5=songResults[5].getArtist(), album5=songResults[5].getAlbum(),
+                               score5=songResults[5].getScore(), name6=songResults[6].getName(), artist6=songResults[6].getArtist(), album6=songResults[6].getAlbum(),
+                               score6=songResults[6].getScore(), name7=songResults[7].getName(), artist7=songResults[7].getArtist(), album7=songResults[7].getAlbum(),
+                               score7=songResults[7].getScore())
+    if len(songResults) == 7:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore(), name5=songResults[5].getName(), artist5=songResults[5].getArtist(), album5=songResults[5].getAlbum(),
+                               score5=songResults[5].getScore(), name6=songResults[6].getName(), artist6=songResults[6].getArtist(), album6=songResults[6].getAlbum(),
+                               score6=songResults[6].getScore())
+    if len(songResults) == 6:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore(), name5=songResults[5].getName(), artist5=songResults[5].getArtist(), album5=songResults[5].getAlbum(),
+                               score5=songResults[5].getScore())
+    if len(songResults) == 5:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore(), name4=songResults[4].getName(), artist4=songResults[4].getArtist(), album4=songResults[4].getAlbum(),
+                               score4=songResults[4].getScore())
+    if len(songResults) == 4:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore(), name3=songResults[3].getName(), artist3=songResults[3].getArtist(), album3=songResults[3].getAlbum(),
+                               score3=songResults[3].getScore())
+    if len(songResults) == 3:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
+                               score2=songResults[2].getScore())
+    if len(songResults) == 2:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
+                               score1=songResults[1].getScore())
+    if len(songResults) == 1:
+        return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
+                               score0=songResults[0].getScore())
 
 def playlistAdd(songResults):
     for i in songResults:
@@ -182,7 +270,7 @@ def testing (res):
         if str(i).find('track:') != -1:
             temp = Song(i)
             songResults.append(temp)
-    return searchToString(songResults)
+    return songResults
 
 addedSongs = playlistAdd(songResults)
 

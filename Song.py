@@ -29,6 +29,8 @@ class Song:
 
     def getAdded (self):
         return self.added
+    def getAlbum(self):
+        return self.album
     def getURI(self):
         return self.uri
     def getArtist(self):
