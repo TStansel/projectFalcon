@@ -115,11 +115,13 @@
         margin: 4px 2px;
     }
 
-    input[value="Add"] {
+    input[name="Add"] {
         border: 3px solid #4CAF50;
         color: white;
+        background-color: #253f3f;
         padding: 16px 32px;
         text-decoration: none;
+        font-weight: bold;
         margin: 4px 2px;
     }
 
@@ -128,7 +130,6 @@
 <body>
 
 <h1>Public Playlist</h1>
-
 
 <table >
     <tr>
@@ -145,20 +146,18 @@
            <h3>{{artist}}:{{album}}</h3></td>
        <td><h3>{{ score }}</h3></td>
              <td>
-                 <input type="text" name="btn" value="0">
-                 <input type="button" name="Add" value="Add0" id="Add">
+                 <input type="button" name="Add" value="Add" id="Add">
              </td>
         </form>
     </tr>
     <tr>
-        <form action="/addthings" method="GET">
+        <form action="/add" method="GET">
        <td><h3 type="bold">2</h3></td>
        <td><h3>{{name1}}</h3>
            <h3>{{artist1}}:{{album1}}</h3></td>
        <td><h3>{{ score1 }}</h3></td>
 
              <td>
-                 <input type="text" name="btn" value="1">
                  <input type="button" name="Add" value="Add1" id="Add1">
              </td>
         </form>
@@ -172,7 +171,6 @@
        <td><h3>{{ score2 }}</h3></td>
 
              <td>
-                 <input type="text" name="btn" value="2">
                  <input type="button" name="Add" value="Add2" id="Add2">
              </td>
         </form>
@@ -185,79 +183,72 @@
        <td><h3>{{ score3 }}</h3></td>
 
              <td>
-                 <input type="text" name="btn" value="3">
                 <input type="button" name="Add" value="Add3" id="Add3">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">5</h3></td>
        <td><h3>{{name4}}</h3>
            <h3>{{artist4}}:{{album4}}</h3></td>
        <td><h3>{{ score4 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="4">
                  <input type="button" name="Add" value="Add4" id="Add4">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">6</h3></td>
        <td><h3>{{name5}}</h3>
            <h3>{{artist5}}:{{album5}}</h3></td>
        <td><h3>{{ score5 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="5">
                  <input type="button" name="Add" value="Add5" id="Add5">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">7</h3></td>
        <td><h3>{{name6}}</h3>
            <h3>{{artist6}}:{{album6}}</h3></td>
        <td><h3>{{ score6 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="6">
                  <input type="button" name="Add" value="Add6" id="Add6">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">8</h3></td>
        <td><h3>{{name7}}</h3>
            <h3>{{artist7}}:{{album7}}</h3></td>
        <td><h3>{{ score7 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="7">
                  <input type="button" name="Add" value="Add7" id="Add7">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">9</h3></td>
        <td><h3>{{name8}}</h3>
            <h3>{{artist8}}:{{album8}}</h3></td>
        <td><h3>{{ score8 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="8">
                  <input type="button" name="Add" value="Add8" id="Add8">
              </td>
         </form>
     </tr>
-    <tr><form action="/add" method="GET">
+    <tr>
+        <form action="/add" method="GET">
        <td><h3 type="bold">10</h3></td>
        <td><h3>{{name9}}</h3>
            <h3>{{artist9}}:{{album9}}</h3></td>
        <td><h3>{{ score9 }}</h3></td>
-
              <td>
-                 <input type="text" name="btn" value="9">
                  <input type="button" name="Add" value="Add9" id="Add9">
              </td>
         </form>

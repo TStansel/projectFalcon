@@ -101,7 +101,7 @@ def searchResults():
     results = str(searchCriteria(ar,tr,al))
     songResults= testing(results)
     if len(songResults) == 0:
-        return render_template('search_results.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
+        return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
     if len(songResults) >=10:
             return render_template('search_results.html', name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
                                score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
@@ -182,43 +182,43 @@ def searchResults():
 def addingSongs():
         if request.method == 'GET':
             btnID = request.form['btn']
-        if btnID == '0':
+        if btnID == 'Add0':
             songResults[0].upVote()
             addedSongs.append(songResults[0])
             songResults.remove(0)
-        if btnID == '1':
+        if btnID == 'Add1':
             songResults[1].upVote()
             addedSongs.append(songResults[1])
             songResults.remove(1)
-        if btnID == '2':
+        if btnID == 'Add2':
             songResults[2].upVote()
             addedSongs.append(songResults[2])
             songResults.remove(2)
-        if btnID == '3':
+        if btnID == 'Add3':
             songResults[3].upVote()
             addedSongs.append(songResults[3])
             songResults.remove(3)
-        if btnID == '4':
+        if btnID == 'Add4':
             songResults[4].upVote()
             addedSongs.append(songResults[4])
             songResults.remove(4)
-        if btnID == '5':
+        if btnID == 'Add5':
             songResults[5].upVote()
             addedSongs.append(songResults[5])
             songResults.remove(5)
-        if btnID == '6':
+        if btnID == 'Add6':
             songResults[6].upVote()
             addedSongs.append(songResults[6])
             songResults.remove(6)
-        if btnID == '7':
+        if btnID == 'Add7':
             songResults[7].upVote()
             addedSongs.append(songResults[7])
             songResults.remove(7)
-        if btnID == '8':
+        if btnID == 'Add8':
             songResults[8].upVote()
             addedSongs.append(songResults[8])
             songResults.remove(8)
-        if btnID == '9':
+        if btnID == 'Add9':
             songResults[9].upVote()
             addedSongs.append(songResults[9])
             songResults.remove(9)
