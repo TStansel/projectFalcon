@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,url_for,redirect
 import spotipy
 from Song import Song
 
@@ -7,11 +7,6 @@ app.config['DEBUG'] = True
 
 @app.route('/')
 def hello_world():
-    if request.method == 'POST"':
-        if request.form['vote1'] == 'Up':
-            addedSongs[0].upVote()
-        elif request.form['vote1'] == 'Down':
-            addedSongs[0].downVote()
     if len(addedSongs) == 0:
         return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
     if len(addedSongs) >=10:
@@ -94,7 +89,6 @@ def hello_world():
 
 @app.route('/search_results', methods=['POST'])
 def searchResults():
-    render_template('search_results.html')
     ar = request.form['artist']
     tr = request.form['track']
     al = request.form['album']
@@ -178,14 +172,18 @@ def searchResults():
         return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
                                score0=songResults[0].getScore())
 
-@app.route('/add', methods=['GET'])
+
+@app.route('/add', methods=['POST'])
 def addingSongs():
-        if request.method == 'GET':
-            btnID = request.form['btn']
+        print('adding')
+        btnID = request.form['Add']
+        print (btnID)
         if btnID == 'Add0':
-            songResults[0].upVote()
-            addedSongs.append(songResults[0])
-            songResults.remove(0)
+            print'0'
+            print songResults
+            #songResults[0].upVote()
+            #ddedSongs.append(songResults[0])
+            #songResults.remove(0)
         if btnID == 'Add1':
             songResults[1].upVote()
             addedSongs.append(songResults[1])
@@ -223,9 +221,9 @@ def addingSongs():
             addedSongs.append(songResults[9])
             songResults.remove(9)
         return render_template('base.html')
-@app.route('/vote',methods=['POST'])
-def trackVoting():
-    return 'vote test'
+#@app.route('/vote',methods=['POST'])
+#def trackVoting():
+    #return 'vote test'
 def playlistAdd(songResults):
     for i in songResults:
         if i.getAdded():
@@ -326,4 +324,4 @@ addedSongs = playlistSort(addedSongs) # final playlist
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
