@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,url_for
 import spotipy
 from Song import Song
 
@@ -94,10 +94,12 @@ def hello_world():
 
 @app.route('/search_results', methods=['POST'])
 def searchResults():
+    print url_for('addingSongs')
     render_template('search_results.html')
     ar = request.form['artist']
     tr = request.form['track']
     al = request.form['album']
+    print ('testing')
     results = str(searchCriteria(ar,tr,al))
     songResults= testing(results)
     if len(songResults) == 0:
@@ -178,11 +180,13 @@ def searchResults():
         return render_template('search_results.html',name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
                                score0=songResults[0].getScore())
 
-@app.route('/add', methods=['GET'])
+@app.route('/add')
 def addingSongs():
+        print('testing')
         if request.method == 'GET':
-            btnID = request.form['btn']
-        if btnID == 'Add0':
+            btnID = request.form['Add']
+        if btnID=='TESTING':
+            print ('fewfew')
             songResults[0].upVote()
             addedSongs.append(songResults[0])
             songResults.remove(0)
@@ -223,9 +227,9 @@ def addingSongs():
             addedSongs.append(songResults[9])
             songResults.remove(9)
         return render_template('base.html')
-@app.route('/vote',methods=['POST'])
-def trackVoting():
-    return 'vote test'
+#@app.route('/vote',methods=['POST'])
+#def trackVoting():
+    #return 'vote test'
 def playlistAdd(songResults):
     for i in songResults:
         if i.getAdded():
