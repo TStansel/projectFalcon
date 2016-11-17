@@ -7,10 +7,10 @@
     body {
         font-family: sans-serif;
         background-image: url('/static/Flat-Color-Gradient-Triangles.png');
-        width: 640px;
-        height: 1136px;
+        width: 430px;
+        height: 763px;
+        margin: 0 auto;
     }
-
     h1 {
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     	font-size: 45px;
@@ -20,7 +20,6 @@
         padding: 3px;
         text-align: center;
     }
-
     h2 {
         font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     	font-size: 15px;
@@ -29,7 +28,6 @@
         padding: 3px;
         border: 1.5px
     }
-
     h3 {
     	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     	font-size: 14px;
@@ -39,40 +37,32 @@
         border-bottom: 1px;
         padding: 3px;
     }
-
     .explicit{
         color: rgb(200, 0, 0);
     }
-
     .rank{
         font-weight: bold;
     }
-
     table {
         border-collapse: collapse;
         padding: 4px;
     }
-
     table, th, td {
         padding: 5px;
         border-bottom: 1px solid black;
         color: white;
         text-align: center;
     }
-
     th {
         background-color: #121f1f;
         border-left: #121f1f;
         border-right:#121f1f;
     }
-
     td {
         background-color: #253f3f;
         border-left: #253f3f;
         border-right: #253f3f;
-
     }
-
     input[type='text'] {
         width: 100%;
         padding: 6px 10px;
@@ -82,11 +72,9 @@
         font-size: 14px;
         border-radius: 10px;
     }
-
     input[type='text']:focus {
         border: 3px solid red;
     }
-
     input[type = 'submit'] {
         background-color: #4CAF50;
         border: none;
@@ -96,39 +84,37 @@
         margin: 4px 2px;
         width: 100%;
     }
-
     input[value="Up"] {
         background-color: #4CAF50;
+        background-image: url('/static/down.png');
         border: none;
-        color: white;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
     }
-
     input[value="Down"] {
-        background-color: rgb(200,0,0);
+        background-color: #4CAF50;
+        background-image: url('/static/down.png');
         border: none;
-        color: white;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
     }
-
-    input[name="Add"] {
-        border: 3px solid #4CAF50;
-        color: white;
-        background-color: #253f3f;
+    input[value="Add"] {
+        background-color: #4CAF50;
+        background-image: url('/static/plus.png');
         padding: 16px 32px;
         text-decoration: none;
-        font-weight: bold;
         margin: 4px 2px;
     }
-
+    div.content {
+        width: 430px;
+        margin: 0 auto;
+    }
 </style>
 </head>
 <body>
-
+<div class="content">
 <h1>Public Playlist</h1>
 
 <table >
@@ -254,5 +240,6 @@
         </form>
     </tr>
 </table>
+</div>
 </body>
 </html>
