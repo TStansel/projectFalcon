@@ -59,6 +59,7 @@
         border-bottom: 1px solid black;
         color: white;
         text-align: center;
+        width: 430px;
     }
 
     th {
@@ -99,29 +100,39 @@
     }
 
     input[value="Up"] {
-        background-color: #4CAF50;
-        background-image: url('/static/down.png');
+        background-color: #253f3f;
+        background-image: url('/static/up.png');
+        width: 10px;
+        height: 64px;
         border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
 
     input[value="Down"] {
-        background-color: #4CAF50;
+        background-color: #253f3f;
         background-image: url('/static/down.png');
+        width: 10px;
+        height: 64px;
         border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
 
-    input[value="Add"] {
-        background-color: #4CAF50;
+    input[name="Add"] {
+        background-color: #253f3f;
         background-image: url('/static/plus.png');
+        width: 40px;
+        height: 60px;
+        border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
 
     div.content {
@@ -154,7 +165,7 @@
     <tr>
        <td><h3 type="bold">1</h3></td>
        <td><h3>{{name}}</h3>
-           <h3>{{artist}}:{{album}}</h3></td>
+           <h3>{{artist}} | {{album}}</h3></td>
        <td><h3>{{ score }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -166,7 +177,7 @@
     <tr>
        <td><h3 type="bold">2</h3></td>
        <td><h3>{{name1}}</h3>
-           <h3>{{artist1}}:{{album1}}</h3></td>
+           <h3>{{artist1}} | {{album1}}</h3></td>
        <td><h3>{{ score1 }}</h3></td>
         <form action="/" method="POST">
              <td>
@@ -178,7 +189,7 @@
     <tr>
        <td><h3 type="bold">3</h3></td>
        <td><h3>{{name2}}</h3>
-           <h3>{{artist2}}:{{album2}}</h3></td>
+           <h3>{{artist2}} | {{album2}}</h3></td>
        <td><h3>{{ score2 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -190,7 +201,7 @@
     <tr>
        <td><h3 type="bold">4</h3></td>
        <td><h3>{{name3}}</h3>
-           <h3>{{artist3}}:{{album3}}</h3></td>
+           <h3>{{artist3}} | {{album3}}</h3></td>
        <td><h3>{{ score3 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -202,7 +213,7 @@
     <tr>
        <td><h3 type="bold">5</h3></td>
        <td><h3>{{name4}}</h3>
-           <h3>{{artist4}}:{{album4}}</h3></td>
+           <h3>{{artist4}} | {{album4}}</h3></td>
        <td><h3>{{ score4 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -214,7 +225,7 @@
     <tr>
        <td><h3 type="bold">6</h3></td>
        <td><h3>{{name5}}</h3>
-           <h3>{{artist5}}:{{album5}}</h3></td>
+           <h3>{{artist5}} | {{album5}}</h3></td>
        <td><h3>{{ score5 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -226,7 +237,7 @@
     <tr>
        <td><h3 type="bold">7</h3></td>
        <td><h3>{{name6}}</h3>
-           <h3>{{artist6}}:{{album6}}</h3></td>
+           <h3>{{artist6}} | {{album6}}</h3></td>
        <td><h3>{{ score6 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -238,7 +249,7 @@
     <tr>
        <td><h3 type="bold">8</h3></td>
        <td><h3>{{name7}}</h3>
-           <h3>{{artist7}}:{{album7}}</h3></td>
+           <h3>{{artist7}} | {{album7}}</h3></td>
        <td><h3>{{ score7 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -250,7 +261,7 @@
     <tr>
        <td><h3 type="bold">9</h3></td>
        <td><h3>{{name8}}</h3>
-           <h3>{{artist8}}:{{album8}}</h3></td>
+           <h3>{{artist8}} | {{album8}}</h3></td>
        <td><h3>{{ score8 }}</h3></td>
         <form action="/vote" method="POST">
              <td>
@@ -262,7 +273,7 @@
     <tr>
        <td><h3 type="bold">10</h3></td>
        <td><h3>{{name9}}</h3>
-           <h3>{{artist9}}:{{album9}}</h3></td>
+           <h3>{{artist9}} | {{album9}}</h3></td>
        <td><h3>{{ score9 }}</h3></td>
         <form action="/vote" method="POST">
              <td>

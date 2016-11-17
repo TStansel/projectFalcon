@@ -11,6 +11,7 @@
         height: 763px;
         margin: 0 auto;
     }
+
     h1 {
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     	font-size: 45px;
@@ -20,6 +21,7 @@
         padding: 3px;
         text-align: center;
     }
+
     h2 {
         font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     	font-size: 15px;
@@ -28,6 +30,7 @@
         padding: 3px;
         border: 1.5px
     }
+
     h3 {
     	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     	font-size: 14px;
@@ -37,32 +40,40 @@
         border-bottom: 1px;
         padding: 3px;
     }
+
     .explicit{
         color: rgb(200, 0, 0);
     }
+
     .rank{
         font-weight: bold;
     }
+
     table {
         border-collapse: collapse;
         padding: 4px;
     }
+
     table, th, td {
         padding: 5px;
         border-bottom: 1px solid black;
         color: white;
         text-align: center;
+        width: 430px;
     }
+
     th {
         background-color: #121f1f;
         border-left: #121f1f;
         border-right:#121f1f;
     }
+
     td {
         background-color: #253f3f;
         border-left: #253f3f;
         border-right: #253f3f;
     }
+
     input[type='text'] {
         width: 100%;
         padding: 6px 10px;
@@ -72,9 +83,11 @@
         font-size: 14px;
         border-radius: 10px;
     }
+
     input[type='text']:focus {
         border: 3px solid red;
     }
+
     input[type = 'submit'] {
         background-color: #4CAF50;
         border: none;
@@ -84,33 +97,48 @@
         margin: 4px 2px;
         width: 100%;
     }
+
     input[value="Up"] {
-        background-color: #4CAF50;
-        background-image: url('/static/down.png');
+        background-color: #253f3f;
+        background-image: url('/static/up.png');
+        width: 40px;
+        height: 64px;
         border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
+
     input[value="Down"] {
-        background-color: #4CAF50;
+        background-color: #253f3f;
         background-image: url('/static/down.png');
+        width: 40px;
+        height: 64px;
         border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
-    input[value="Add"] {
-        background-color: #4CAF50;
+
+    input[name="Add"] {
+        background-color: #253f3f;
         background-image: url('/static/plus.png');
+        width: 40px;
+        height: 60px;
+        border: none;
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
+        background-size: 100% auto;
     }
+
     div.content {
         width: 430px;
         margin: 0 auto;
     }
+
 </style>
 </head>
 <body>
@@ -129,7 +157,7 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">1</h3></td>
        <td><h3>{{name0}}</h3>
-           <h3>{{artist0}}:{{album0}}</h3></td>
+           <h3>{{artist0}} | {{album0}}</h3></td>
        <td><h3>{{ score0 }}</h3></td>
              <td>
                  <input type="button" name="Add" value="Add" id="Add">
@@ -140,11 +168,11 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">2</h3></td>
        <td><h3>{{name1}}</h3>
-           <h3>{{artist1}}:{{album1}}</h3></td>
+           <h3>{{artist1}} | {{album1}}</h3></td>
        <td><h3>{{ score1 }}</h3></td>
 
              <td>
-                 <input type="button" name="Add" value="Add1" id="Add1">
+                 <input type="button" name="Add" value="Add" id="Add1">
              </td>
         </form>
     </tr>
@@ -153,11 +181,11 @@
 
        <td><h3 type="bold">3</h3></td>
        <td><h3>{{name2}}</h3>
-           <h3>{{artist2}}:{{album2}}</h3></td>
+           <h3>{{artist2}} | {{album2}}</h3></td>
        <td><h3>{{ score2 }}</h3></td>
 
              <td>
-                 <input type="button" name="Add" value="Add2" id="Add2">
+                 <input type="button" name="Add" value="Add" id="Add2">
              </td>
         </form>
     </tr>
@@ -165,11 +193,11 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">4</h3></td>
        <td><h3>{{name3}}</h3>
-           <h3>{{artist3}}:{{album3}}</h3></td>
+           <h3>{{artist3}} | {{album3}}</h3></td>
        <td><h3>{{ score3 }}</h3></td>
 
              <td>
-                <input type="button" name="Add" value="Add3" id="Add3">
+                <input type="button" name="Add" value="Add" id="Add3">
              </td>
         </form>
     </tr>
@@ -177,10 +205,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">5</h3></td>
        <td><h3>{{name4}}</h3>
-           <h3>{{artist4}}:{{album4}}</h3></td>
+           <h3>{{artist4}} | {{album4}}</h3></td>
        <td><h3>{{ score4 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add4" id="Add4">
+                 <input type="button" name="Add" value="Add" id="Add4">
              </td>
         </form>
     </tr>
@@ -188,10 +216,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">6</h3></td>
        <td><h3>{{name5}}</h3>
-           <h3>{{artist5}}:{{album5}}</h3></td>
+           <h3>{{artist5}} | {{album5}}</h3></td>
        <td><h3>{{ score5 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add5" id="Add5">
+                 <input type="button" name="Add" value="Add" id="Add5">
              </td>
         </form>
     </tr>
@@ -199,10 +227,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">7</h3></td>
        <td><h3>{{name6}}</h3>
-           <h3>{{artist6}}:{{album6}}</h3></td>
+           <h3>{{artist6}} | {{album6}}</h3></td>
        <td><h3>{{ score6 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add6" id="Add6">
+                 <input type="button" name="Add" value="Add" id="Add6">
              </td>
         </form>
     </tr>
@@ -210,10 +238,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">8</h3></td>
        <td><h3>{{name7}}</h3>
-           <h3>{{artist7}}:{{album7}}</h3></td>
+           <h3>{{artist7}} | {{album7}}</h3></td>
        <td><h3>{{ score7 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add7" id="Add7">
+                 <input type="button" name="Add" value="Add" id="Add7">
              </td>
         </form>
     </tr>
@@ -221,10 +249,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">9</h3></td>
        <td><h3>{{name8}}</h3>
-           <h3>{{artist8}}:{{album8}}</h3></td>
+           <h3>{{artist8}} | {{album8}}</h3></td>
        <td><h3>{{ score8 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add8" id="Add8">
+                 <input type="button" name="Add" value="Add" id="Add8">
              </td>
         </form>
     </tr>
@@ -232,10 +260,10 @@
         <form action="/add" method="GET">
        <td><h3 type="bold">10</h3></td>
        <td><h3>{{name9}}</h3>
-           <h3>{{artist9}}:{{album9}}</h3></td>
+           <h3>{{artist9}} | {{album9}}</h3></td>
        <td><h3>{{ score9 }}</h3></td>
              <td>
-                 <input type="button" name="Add" value="Add9" id="Add9">
+                 <input type="button" name="Add" value="Add" id="Add9">
              </td>
         </form>
     </tr>
