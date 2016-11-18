@@ -1,4 +1,4 @@
-
+<style>
 body {
     font-family: sans-serif;
     background-image: url('/static/Flat-Color-Gradient-Triangles.png');
@@ -133,3 +133,4 @@ div.content {
     width: 430px;
     margin: 0 auto;
 }
+</style>
