@@ -190,6 +190,7 @@ def addingSongs():
             songResults[0].upVote()
             addedSongs.append(songResults[0])
             songResults.remove(songResults[0])
+            print songResults
         if btnID == 'Add1':
             print btnID
             print songResults
