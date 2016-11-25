@@ -7,6 +7,7 @@ app.config['DEBUG'] = True
 
 @app.route('/')
 def hello_world():
+    global addedSongs
     if len(addedSongs) == 0:
         return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
     if len(addedSongs) >=10:
@@ -89,10 +90,12 @@ def hello_world():
 
 @app.route('/search_results', methods=['POST'])
 def searchResults():
+    global songResults
     ar = request.form['artist']
     tr = request.form['track']
     al = request.form['album']
     results = str(searchCriteria(ar,tr,al))
+
     songResults= testing(results)
     if len(songResults) == 0:
         return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
@@ -176,6 +179,8 @@ def searchResults():
 
 @app.route('/add', methods=['POST'])
 def addingSongs():
+        global songResults
+        global addedSongs
         print('adding')
         print songResults
         btnID = request.form['Add']
@@ -184,55 +189,61 @@ def addingSongs():
             print'0'
             songResults[0].upVote()
             addedSongs.append(songResults[0])
-            songResults.remove(0)
+            songResults.remove(songResults[0])
         if btnID == 'Add1':
             print btnID
             print songResults
             songResults[1].upVote()
             addedSongs.append(songResults[1])
-            songResults.remove(1)
+            songResults.remove(songResults[1])
         if btnID == 'Add2':
             songResults[2].upVote()
             addedSongs.append(songResults[2])
-            songResults.remove(2)
+            songResults.remove(songResults[2])
         if btnID == 'Add3':
             songResults[3].upVote()
             addedSongs.append(songResults[3])
-            songResults.remove(3)
+            songResults.remove(songResults[3])
         if btnID == 'Add4':
             songResults[4].upVote()
             addedSongs.append(songResults[4])
-            songResults.remove(4)
+            songResults.remove(songResults[4])
         if btnID == 'Add5':
             songResults[5].upVote()
             addedSongs.append(songResults[5])
-            songResults.remove(5)
+            songResults.remove(songResults[5])
         if btnID == 'Add6':
             songResults[6].upVote()
             addedSongs.append(songResults[6])
-            songResults.remove(6)
+            songResults.remove(songResults[6])
         if btnID == 'Add7':
             songResults[7].upVote()
             addedSongs.append(songResults[7])
-            songResults.remove(7)
+            songResults.remove(songResults[7])
         if btnID == 'Add8':
             songResults[8].upVote()
             addedSongs.append(songResults[8])
-            songResults.remove(8)
+            songResults.remove(songResults[8])
         if btnID == 'Add9':
             songResults[9].upVote()
             addedSongs.append(songResults[9])
-            songResults.remove(9)
+            songResults.remove(songResults[9])
         return render_template('base.html')
 #@app.route('/vote',methods=['POST'])
 #def trackVoting():
     #return 'vote test'
-def playlistAdd(songResults):
-    for i in songResults:
+
+
+def playlistAdd(results):
+    global addedSongs
+    for i in results:
         if i.getAdded():
             addedSongs.append(i)
     return addedSongs
+
+
 def playlistSort(addedSongs):
+    global addedSongsScore
     for i in addedSongs:
         addedSongsScore.append(i.getScore())
     addedSongsScore.sort()
@@ -253,6 +264,7 @@ def playlistSort(addedSongs):
                     temp.append(addedSongs[j])
                     continue
     return temp
+
 
 def searchCriteria(artistName,trackName,albumName):
     # if nothing
@@ -290,6 +302,7 @@ def searchCriteria(artistName,trackName,albumName):
                                  type="track")
     return results
 
+
 def searchToString(songResults):
     temp=""
     for i in songResults:
@@ -298,15 +311,17 @@ def searchToString(songResults):
     return text
 
 
-
 spotify = spotipy.Spotify()
 
 uriResults = []
-songResults = []
 addedSongs = []
 addedSongsScore = []
+songResults = []
+
 
 def testing (res):
+    global songResults
+    global uriResults
     end = 0
     songResults = []
     uriResults = []
@@ -320,6 +335,16 @@ def testing (res):
             temp = Song(i)
             songResults.append(temp)
     return songResults
+
+def setSongResults(results):
+    global songResults
+    songResults = results
+
+
+def setAddedSongs(songs):
+    global addedSongs
+    addedSongs = songs
+
 
 addedSongs = playlistAdd(songResults)
 
