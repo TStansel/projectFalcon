@@ -102,7 +102,6 @@ def searchResults():
     if len(songResults) == 0:
         return render_template('base.html',artist0='',album0 = '',name0='',score0='',artist1='',album1 = '',name1='',score1='',artist2='',album2 = '',name2='',score2='',artist3='',album3 = '',name3='',score3='',artist4='',album4 = '',name4='',score4='',artist5='',album5 = '',name5='',score5='',artist6='',album6 = '',name6='',score6='',artist7='',album7 = '',name7='',score7='',artist8='',album8 = '',name8='',score8='',artist9='',album9 = '',name9='',score9='')
     if len(songResults) >=10:
-            print songResults[0].getName()
             return render_template('search_results.html', name0=songResults[0].getName(), artist0=songResults[0].getArtist(), album0=songResults[0].getAlbum(),
                                score0=songResults[0].getScore(), name1=songResults[1].getName(), artist1=songResults[1].getArtist(), album1=songResults[1].getAlbum(),
                                score1=songResults[1].getScore(), name2=songResults[2].getName(), artist2=songResults[2].getArtist(), album2=songResults[2].getAlbum(),
@@ -183,13 +182,11 @@ def searchResults():
 def addingSongs():
         global songResults
         global addedSongs
-        print songResults[0].getURI()+ 'sr uri'
         btnID = request.form['Add']
         if btnID == 'Add0':
             songResults[0].upVote()
             addedSongs.append(songResults[0])
             songResults.remove(songResults[0])
-            print type(addedSongs[0].getURI())
         if btnID == 'Add1':
             songResults[1].upVote()
             addedSongs.append(songResults[1])
