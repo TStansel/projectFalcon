@@ -270,7 +270,7 @@ def trackVoting():
     if voteID == 'Down9':
         addedSongs[9].downVote()
     voteID = 'waiting'
-    #addedSongs = playlistSort(addedSongs)
+    addedSongs = playlistSort(addedSongs)
     return hello_world()
 
 
@@ -295,6 +295,7 @@ def swap(addedSongs,idx1,idx2):
     addedSongs[idx2] = temp
 
 def playlistSort(addedSongs):
+    print 'sorting'
     global addedSongsScore
     for i in addedSongs:
         addedSongsScore.append(i.getScore())
@@ -303,14 +304,18 @@ def playlistSort(addedSongs):
     if len(addedSongs) >1:
          #go through sorted list of scores
          for i in range(len(addedSongs)-1):
+            print 'first loop'
             maxIdx = i
             j = i+1
             while j<len(addedSongs):
-               if temp[j].getScore()>i:
+                if temp[j].getScore()>temp[i].getScore():
+                    print 'new max'
                     maxIdx = j
                     newMax = True
+                j = j+1
             if newMax:
                 swap(temp,i,maxIdx)
+                print 'swapped'
             newMax = False
     return temp
 
