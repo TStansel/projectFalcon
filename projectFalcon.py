@@ -223,10 +223,55 @@ def addingSongs():
             songResults[9].upVote()
             addedSongs.append(songResults[9])
             songResults.remove(songResults[9])
+        btnID = 'waiting'
         return hello_world()
-#@app.route('/vote',methods=['POST'])
-#def trackVoting():
-    #return 'vote test'
+@app.route('/vote',methods=['POST'])
+def trackVoting():
+    global addedSongs
+    voteID = request.form['vote']
+    if voteID == 'Up0':
+        addedSongs[0].upVote()
+    if voteID == 'Down0':
+        addedSongs[0].downVote()
+    if voteID == 'Up1':
+        addedSongs[1].upVote()
+    if voteID == 'Down1':
+        addedSongs[1].downVote()
+    if voteID == 'Up2':
+        addedSongs[2].upVote()
+    if voteID == 'Down2':
+        addedSongs[2].downVote()
+    if voteID == 'Up3':
+        addedSongs[3].upVote()
+    if voteID == 'Down3':
+        addedSongs[3].downVote()
+    if voteID == 'Up4':
+        addedSongs[4].upVote()
+    if voteID == 'Down4':
+        addedSongs[4].downVote()
+    if voteID == 'Up5':
+        addedSongs[5].upVote()
+    if voteID == 'Down5':
+        addedSongs[5].downVote()
+    if voteID == 'Up6':
+        addedSongs[6].upVote()
+    if voteID == 'Down6':
+        addedSongs[6].downVote()
+    if voteID == 'Up7':
+        addedSongs[7].upVote()
+    if voteID == 'Down7':
+        addedSongs[7].downVote()
+    if voteID == 'Up8':
+        addedSongs[8].upVote()
+    if voteID == 'Down8':
+        addedSongs[8].downVote()
+    if voteID == 'Up9':
+        addedSongs[9].upVote()
+    if voteID == 'Down9':
+        addedSongs[9].downVote()
+    voteID = 'waiting'
+    #addedSongs = playlistSort(addedSongs)
+    return hello_world()
 
 
 def playlistAdd(results):
@@ -244,29 +289,29 @@ def playlistSearch():
             if addsong.getURI()==results.getURI():
                 songResults.pop(songResults.index(results))
 
-
+def swap(addedSongs,idx1,idx2):
+    temp = addedSongs[idx1]
+    addedSongs[idx1] = addedSongs[idx2]
+    addedSongs[idx2] = temp
 
 def playlistSort(addedSongs):
     global addedSongsScore
     for i in addedSongs:
         addedSongsScore.append(i.getScore())
-    addedSongsScore.sort()
-    addedSongsScore.reverse()
-    temp=[]
-    #go through sorted list of scores
-    for i in addedSongsScore:
-        #go through unsorted songs
-        for j in range(len(addedSongs)):
-            #check for same score
-            if addedSongs[j].getScore()==i:
-                #check for duplication
-                if j>0 and len(temp) != 0:
-                    if temp[j-1].getURI() != addedSongs[j].getURI():
-                        temp.append(addedSongs[j])
-                        continue
-                else:
-                    temp.append(addedSongs[j])
-                    continue
+    temp=addedSongs
+    newMax = False
+    if len(addedSongs) >1:
+         #go through sorted list of scores
+         for i in range(len(addedSongs)-1):
+            maxIdx = i
+            j = i+1
+            while j<len(addedSongs):
+               if temp[j].getScore()>i:
+                    maxIdx = j
+                    newMax = True
+            if newMax:
+                swap(temp,i,maxIdx)
+            newMax = False
     return temp
 
 
@@ -348,12 +393,6 @@ def setSongResults(results):
 def setAddedSongs(songs):
     global addedSongs
     addedSongs = songs
-
-
-addedSongs = playlistAdd(songResults)
-
-addedSongs = playlistSort(addedSongs) # final playlist
-
 
 if __name__ == '__main__':
     app.run(debug=True)
