@@ -2,10 +2,10 @@ from flask import Flask, render_template, request,url_for,redirect
 import spotipy
 from Song import Song
 
-app = Flask(__name__)
-app.config['DEBUG'] = True
+application = Flask(__name__)
+application.config['DEBUG'] = True
 
-@app.route('/')
+@application.route('/')
 def hello_world():
     global addedSongs
     if len(addedSongs) == 0:
@@ -88,7 +88,7 @@ def hello_world():
 
 
 
-@app.route('/search_results', methods=['POST'])
+@application.route('/search_results', methods=['POST'])
 def searchResults():
     global songResults
     ar = request.form['artist']
@@ -178,7 +178,7 @@ def searchResults():
                                score0=songResults[0].getScore())
 
 
-@app.route('/add', methods=['POST'])
+@application.route('/add', methods=['POST'])
 def addingSongs():
         global songResults
         global addedSongs
@@ -225,7 +225,7 @@ def addingSongs():
             songResults.remove(songResults[9])
         btnID = 'waiting'
         return hello_world()
-@app.route('/vote',methods=['POST'])
+@application.route('/vote',methods=['POST'])
 def trackVoting():
     global addedSongs
     voteID = request.form['vote']
@@ -400,4 +400,4 @@ def setAddedSongs(songs):
     addedSongs = songs
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
